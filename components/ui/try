@@ -1,0 +1,90 @@
+function SvgAnimation() {
+  const transition = { duration: 1.5, yoyo: Infinity, ease: "easeInOut" }
+  const {scrollYProgress} = useScroll()
+
+
+  return (
+    <motion.svg id='main' width="full" height="full" viewBox="0 0 130 120" fill="none" className='overflow-visible'>
+      <g id='group'>
+        <motion.g 
+          initial={{scale:1, opacity:1}}
+          animate={{scale:20, opacity:0}}
+          transition={{duration:3, delay:2, staggerChildren:0.4 , ease:'linear',}}
+        >
+          <motion.circle id="Ellipse 1"  cx="65.5" cy="57.5" r="42" stroke="#4375FB" stroke-width="0.3" initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} transition={transition} />
+          <motion.circle id="Ellipse 2"  cx="65.5" cy="57.5" r="42" stroke="#4375FB" stroke-width="0.3" initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} transition={transition} />
+          <motion.circle id="Ellipse 3"  cx="65.5" cy="57.5" r="42" stroke="#4375FB" stroke-width="0.3" initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} transition={transition} />
+        </motion.g>
+
+        <motion.g 
+          initial={{x:0, opacity:1}}
+          animate={{x:1000, opacity:0}}
+          transition={{duration:3, delay:1.5, ease:'linear'}}
+          className=''
+        >
+          <motion.line id="Line 1" x1="52" y1="55.5" x2="85" y2="55.5" stroke="#4375FB" stroke-width="0.3" initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} transition={transition} />
+          <motion.line id="Line 2" x1="80.4797" y1="59.7476" x2="84.8311" y2="55.6166" stroke="#4375FB" stroke-width="0.3" initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} transition={transition} />
+          <motion.line id="Line 3" x1="81.2729" y1="51.5411" x2="85.4451" y2="55.853" stroke="#4375FB"stroke-width="0.3" initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} transition={transition} />
+        </motion.g>
+      </g>
+    </motion.svg>
+  );
+}
+
+
+
+function TextAnimation() {
+  const words1 = "Private";
+  const words2 = "Market";
+  const letters1 = words1.split("");
+  const letters2 = words2.split("");
+
+  const pullupVariant = {
+    hidden: { opacity: 0 },
+    visible: (i:any) => ({ y: 0, opacity: 1, transition: { delay: i * 0.1 } }),
+  };
+
+  return (
+    <div className="h-full flex gap-2 overflow-hidden items-center justify-start z-10">
+        <motion.div  
+          initial={{y:0, opacity:1}}
+          animate={{y:-1000, opacity:0}}
+          transition={{duration: 2, delay:2.5}}
+          className="flex justify-center overflow-hidden"
+        >
+          {letters1.map((letter, i) => (
+            <motion.h1
+              key={i}
+              variants={pullupVariant}
+              initial="hidden"
+              animate="visible"
+              custom={i}
+              className="text-4xl font-bold text-purple-300 "
+            >
+              {letter === " " ? "\u00A0" : letter}<span>{" "}</span>
+            </motion.h1>
+          ))} 
+        </motion.div>
+        <motion.div 
+          initial={{y:0, opacity:1}}
+          animate={{y:-1000, opacity:0}}
+          transition={{duration: 2, delay:2.7}}
+          className="flex justify-center overflow-hidden"
+        > 
+          {letters2.map((letter, i) => (
+            <motion.h1
+              key={i}
+              variants={pullupVariant}
+              initial="hidden"
+              animate="visible"
+              custom={i}
+              className="text-4xl font-bold text-white"
+            >
+              {letter === " " ? "\u00A0" : letter}
+            </motion.h1>
+          ))} 
+        </motion.div>
+      
+    </div>
+  );
+}

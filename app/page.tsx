@@ -6,51 +6,33 @@ import { button as buttonStyles } from "@nextui-org/theme";
 import { siteConfig } from "@/config/site";
 import { title, subtitle } from "@/components/primitives";
 import { GithubIcon } from "@/components/icons";
+import Graph from "@/components/graph";
+import WhyInvest from "@/components/why-invest";
+import HowToInvest from "@/components/how-to-invest";
+import Gradient from "@/components/gradient";
+import Hero from "@/components/hero";
 
 export default function Home() {
   return (
-    <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
-      <div className="inline-block max-w-lg text-center justify-center">
-        <h1 className={title()}>Make&nbsp;</h1>
-        <h1 className={title({ color: "violet" })}>beautiful&nbsp;</h1>
-        <br />
-        <h1 className={title()}>
-          websites regardless of your design experience.
-        </h1>
-        <h2 className={subtitle({ class: "mt-4" })}>
-          Beautiful, fast and modern React UI library.
-        </h2>
+    <section className="flex flex-col items-center justify-center gap-6 ">
+
+      <div className="container mx-auto max-w-7xl pt-16 px-6 flex-grow">
+        <div className="flex flex-col gap-24 py-8 md:py-10">
+          <Hero/>
+          <Graph/> 
+          <Gradient/>
+        </div>
       </div>
 
-      <div className="flex gap-3">
-        <Link
-          isExternal
-          className={buttonStyles({
-            color: "primary",
-            radius: "full",
-            variant: "shadow",
-          })}
-          href={siteConfig.links.docs}
-        >
-          Documentation
-        </Link>
-        <Link
-          isExternal
-          className={buttonStyles({ variant: "bordered", radius: "full" })}
-          href={siteConfig.links.github}
-        >
-          <GithubIcon size={20} />
-          GitHub
-        </Link>
-      </div>
-
-      <div className="mt-8">
-        <Snippet hideCopyButton hideSymbol variant="flat">
-          <span>
-            Get started by editing <Code color="primary">app/page.tsx</Code>
-          </span>
-        </Snippet>
-      </div>
+     <div className="w-full bg-white">
+        <WhyInvest/>
+        <div className="container mx-auto max-w-7xl pt-16 px-6 flex-grow">
+          <div className="py-8 md:py-10">
+            <HowToInvest/>
+          </div>
+        </div>
+     </div>
+     
     </section>
   );
 }
