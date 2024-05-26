@@ -11,7 +11,7 @@ import TextShimmer from "@/components/magicui/animated-shiny-text";
 export const Navbar = () => {
 
   return (
-    <NextUINavbar isBordered maxWidth="xl" position="sticky" >
+    <NextUINavbar isBordered maxWidth="xl" position="static" >
       <NavbarContent justify="start">
         <NavbarItem>
           <Link href="/" className="flex items-center gap-2 group w-fit ">

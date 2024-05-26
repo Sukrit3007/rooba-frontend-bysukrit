@@ -1,10 +1,8 @@
 "use client";
-import { cn } from "@/utils/cn";
 
-import gsap from "gsap";
+import { cn } from "@/utils/cn";
 import { useEffect, useRef, useState } from "react";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-gsap.registerPlugin(ScrollTrigger)
+import { motion, useScroll, useTransform } from "framer-motion";
 
 export const GradientAnimation = ({
     firstColor = "18, 113, 255",
@@ -43,71 +41,34 @@ export const GradientAnimation = ({
         document.body.style.setProperty("--pointer-color", pointerColor);
         document.body.style.setProperty("--size", size);
         document.body.style.setProperty("--blending-value", blendingValue);
-    }, []);
-
-
+    }, [firstColor, secondColor, thirdColor, fourthColor, fifthColor, pointerColor, size, blendingValue]);
 
     const [isSafari, setIsSafari] = useState(false);
     useEffect(() => {
         setIsSafari(/^((?!chrome|android).)*safari/i.test(navigator.userAgent));
     }, []);
 
+    const targetRef = useRef<any>(null);
+    const { scrollYProgress } = useScroll({
+        target: targetRef,
+        offset: ["start end", "end center"],
+    });
 
-    // ANIMATION
-    const first = useRef(null)
-    const second = useRef(null)
-    const third = useRef(null)
-    const fourth = useRef(null)
-    const fifth = useRef(null)
+    const opacityThird = useTransform(scrollYProgress, [0.2, 0.8], [1, 0.2]);
+    const xThird = useTransform(scrollYProgress, [0, 1], [10, -100]);
+    const yThird = useTransform(scrollYProgress, [0, 1], [500, -200]);
+    const scaleThird = useTransform(scrollYProgress, [0, 1], [0.4, 1]);
+    const backgroundColorThird = useTransform(scrollYProgress, [0, 1], [`rgba(${thirdColor}, 0.8)`, `rgba(${fifthColor}, 0.7)`]);
 
-    useEffect(() => {
-        const el3 = third.current
-        const el4 = fourth.current
-
-        gsap.fromTo(el3,{
-            x:10,
-            y:10,
-            opacity:1
-        },{
-            x:-200,
-            y:-200,
-            scale:1,
-            backgroundColor: `rgba(${fifthColor}, 1)`,
-            opacity:0,
-            duration:4,
-            delay:1,
-            scrollTrigger:{
-                trigger:'#main',
-                start:'top 40%',
-                scrub:true
-            }
-        })
-
-        gsap.fromTo(el4,{
-            x:-100,
-            y:-100,
-            duration:2,
-        },{
-            x:0,
-            y:0,
-            opacity:0.5,
-            duration:6,
-            delay:2,
-            scrollTrigger:{
-                trigger:'#main',
-                start:'top 50%',
-                scrub:true
-            }
-        })
-      
-    }, [])
-    
+    const opacityFourth = useTransform(scrollYProgress, [0, 1], [0.3, 1]);
+    const xFourth = useTransform(scrollYProgress, [0, 1], [-100, 0]);
+    const yFourth = useTransform(scrollYProgress, [0, 1], [-100, 0]);
 
     return (
         <div
-            id="#main"
+            ref={targetRef}
             className={cn(
-                "h-[600px] w-screen relative overflow-hidden top-0 left-0 ",
+                "h-[600px] w-screen relative overflow-hidden top-0 left-0",
                 containerClassName
             )}
         >
@@ -137,22 +98,31 @@ export const GradientAnimation = ({
                     isSafari ? "blur-2xl" : "[filter:url(#blurMe)_blur(40px)]"
                 )}
             >
-                
-
-                <div
+                <motion.div
                     id="third"
-                    ref={third}
+                    style={{
+                        x: xThird,
+                        y: yThird,
+                        opacity: opacityThird,
+                        scale: scaleThird,
+                        backgroundColor: backgroundColorThird,
+                    }}
                     className={cn(
                         `absolute [background:radial-gradient(circle_at_center,_rgba(var(--third-color),_0.8)_0,_rgba(var(--third-color),_0)_50%)_no-repeat]`,
                         `[mix-blend-mode:var(--blending-value)] w-[var(--size)] h-[var(--size)] top-[calc(50%-var(--size)/2)] left-[calc(50%-var(--size)/2)]`,
                         `[transform-origin:calc(50%+400px)]`,
                         `animate-third`,
-                        `opacity-100`
+                        `opacity-100`,
+                        'rounded-full'
                     )}
-                ></div>
+                ></motion.div>
 
-                <div
-                    ref={fourth}
+                <motion.div
+                    style={{
+                        x: xFourth,
+                        y: yFourth,
+                        opacity: opacityFourth,
+                    }}
                     className={cn(
                         `absolute [background:radial-gradient(circle_at_center,_rgba(var(--fourth-color),_0.8)_0,_rgba(var(--fourth-color),_0)_50%)_no-repeat]`,
                         `[mix-blend-mode:var(--blending-value)] w-[var(--size)] h-[var(--size)] top-[calc(50%-var(--size)/2)] left-[calc(50%-var(--size)/2)]`,
@@ -160,8 +130,7 @@ export const GradientAnimation = ({
                         `animate-fourth`,
                         `opacity-70`
                     )}
-                ></div>
-
+                ></motion.div>
             </div>
         </div>
     );

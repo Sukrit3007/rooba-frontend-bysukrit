@@ -18,7 +18,7 @@ const Gradient = () => {
             <GradientAnimation />
           </div>
 
-          <div className='w-full flex items-center justify-center'>
+          <div  className='w-full flex items-center justify-center'>
             <TextRevealByWord
               text='Empower your financing strategies with tomorrow’s revolutionary technology. Our user-friendly platform will give your investors the power to unlock de-fi capabilities hence boosting the liquidity of your fund by large margins. '
             />
