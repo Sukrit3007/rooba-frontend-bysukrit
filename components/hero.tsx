@@ -4,7 +4,6 @@ import React, { useEffect, useRef } from 'react';
 import { Button } from "@nextui-org/button";
 import gsap from "gsap";
 import { animate, delay, motion, useScroll } from "framer-motion";
-import WordAnimation from './ui/WordAnimation';
 import SvgAnimation from './ui/SvgAnimation';
 
 
@@ -12,13 +11,13 @@ import SvgAnimation from './ui/SvgAnimation';
 const Hero = () => {
  
   return (
-    <div id="hero" className="grid md:grid-cols-2 gap-4  md:p-6 h-[50vh]">
+    <div id="hero" className="grid md:grid-cols-2 gap-4  md:p-6 border border-red-600">
 
         <div className="relative flex ">
           <div className='absolute inset-0 z-10'>
-            <WordAnimation/>
+            {/* <WordAnimation/> */}
           </div>
-          <div className='absolute inset-0'>
+          <div className='absolute inset-0 overflow-hidden'>
             <SvgAnimation/>
           </div>
         </div>

@@ -12,7 +12,7 @@ const SvgAnimation = () => {
                 <motion.g
                     initial={{ scale: 1, opacity: 1 }}
                     animate={{ scale: 20, opacity: 0 }}
-                    transition={{ duration: 3, delay: 3, staggerChildren: 0.4, ease: 'linear', }}
+                    transition={{ duration: 5, delay: 3, staggerChildren: 0.4, ease: 'linear', repeat:Infinity }}
                 >
                     <motion.circle id="Ellipse 1" cx="65.5" cy="57.5" r="42" stroke="#4375FB" stroke-width="0.1"
                         initial={{ pathLength: 0, }} animate={{ pathLength: 1, }} transition={{ duration: 2, delay: 1, ease: 'easeInOut' }} />
@@ -22,7 +22,7 @@ const SvgAnimation = () => {
                 <motion.g
                     initial={{ scale: 1, opacity: 1 }}
                     animate={{ scale: 20, opacity: 0 }}
-                    transition={{ duration: 2.5, delay: 3.3, staggerChildren: 0.4, ease: 'linear', }}
+                    transition={{ duration: 4.7, delay: 3.3, staggerChildren: 0.4, ease: 'linear', repeat:Infinity }}
                 >
                     <motion.circle id="Ellipse 2" cx="65.5" cy="57.5" r="42" stroke="#4375FB" stroke-width="0.1"
                         initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ duration: 2, delay: 1, ease: 'easeInOut' }} />
@@ -33,7 +33,7 @@ const SvgAnimation = () => {
                 <motion.g
                     initial={{ scale: 1, opacity: 1 }}
                     animate={{ scale: 20, opacity: 0 }}
-                    transition={{ duration: 2.5, delay: 3.6, staggerChildren: 0.4, ease: 'linear', }}
+                    transition={{ duration: 4.5, delay: 3.6, staggerChildren: 0.4, ease: 'linear',repeat:Infinity }}
                 >
                     <motion.circle id="Ellipse 3" cx="65.5" cy="57.5" r="42" stroke="#4375FB" stroke-width="0.1"
                         initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ duration: 2, delay: 1, ease: 'easeInOut' }} />

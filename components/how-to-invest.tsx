@@ -15,64 +15,66 @@ const HowToInvest = () => {
     const defaultContent = "Investing in private markets facilitates portfolio diversification, mitigating risks associated with public markets.";
     const [selectedValue, setSelectedValue] = useState("item-1");
 
-    const handleAccordionChange = (value:any) => {
+    const handleAccordionChange = (value: any) => {
         setSelectedValue(value);
     };
 
     return (
         <div className='grid md:grid-cols-2 gap-4 w-full p-6 mb-24 bg-white text-black'>
             <div className='flex flex-col gap-12 h-full w-full '>
-                <div className='text-4xl md:text-6xl '>
+                <div className='text-4xl md:text-6xl font-extralight'>
                     <h1>
                         How to <br />
                     </h1>
-                    <h1 className='flex gap-4 items-center italic pl-12'>
+                    <h1 className='flex gap-4 items-center font-playfair italic pl-12'>
                         Invest<MoveRight />
                     </h1>
                 </div>
 
-                <Accordion type="single" collapsible onValueChange={handleAccordionChange} >
-                    <AccordionItem value="item-1">
-                        <AccordionTrigger>
-                            <h1 className='text-lg font-semibold'>
-                                Create Account
-                            </h1>
-                        </AccordionTrigger>
-                        <AccordionContent>
-                            <div className='flex flex-col gap-4'>
-                                <p>{defaultContent}</p>
-                                <div>
-                                    <Button radius="none" endContent={<MoveRight />} className='bg-white border border-black text-black'>
-                                        Start Now
-                                    </Button>
+                <div className=' lg:px-12'>
+                    <Accordion type="single" collapsible onValueChange={handleAccordionChange}>
+                        <AccordionItem value="item-1">
+                            <AccordionTrigger>
+                                <h1 className='text-lg font-semibold'>
+                                    Create Account
+                                </h1>
+                            </AccordionTrigger>
+                            <AccordionContent>
+                                <div className='flex flex-col gap-4'>
+                                    <p>{defaultContent}</p>
+                                    <div>
+                                        <Button radius="none" endContent={<MoveRight />} className='bg-white border border-black text-black'>
+                                            Start Now
+                                        </Button>
+                                    </div>
                                 </div>
-                            </div>
-                        </AccordionContent>
-                    </AccordionItem>
-                    <AccordionItem value="item-2">
-                        <AccordionTrigger>
-                            <h1 className='text-lg font-semibold'>
-                                Discover Opportunities
-                            </h1>
-                        </AccordionTrigger>
-                        <AccordionContent>
-                            <p>{defaultContent}</p>
-                        </AccordionContent>
-                    </AccordionItem>
-                    <AccordionItem value="item-3">
-                        <AccordionTrigger>
-                            <h1 className='text-lg font-semibold'>
-                                Invest with Flexibility
-                            </h1>
-                        </AccordionTrigger>
-                        <AccordionContent>
-                            <p>{defaultContent}</p>
-                        </AccordionContent>
-                    </AccordionItem>
-                </Accordion>
+                            </AccordionContent>
+                        </AccordionItem>
+                        <AccordionItem value="item-2">
+                            <AccordionTrigger>
+                                <h1 className='text-lg font-semibold'>
+                                    Discover Opportunities
+                                </h1>
+                            </AccordionTrigger>
+                            <AccordionContent>
+                                <p>{defaultContent}</p>
+                            </AccordionContent>
+                        </AccordionItem>
+                        <AccordionItem value="item-3">
+                            <AccordionTrigger>
+                                <h1 className='text-lg font-semibold'>
+                                    Invest with Flexibility
+                                </h1>
+                            </AccordionTrigger>
+                            <AccordionContent>
+                                <p>{defaultContent}</p>
+                            </AccordionContent>
+                        </AccordionItem>
+                    </Accordion>
+                </div>
             </div>
             <div className='md:p-20'>
-            {selectedValue === "" && (
+                {selectedValue === "" && (
                     <div className='flex items-center justify-center p-12'>
                         <div className='relative w-full h-full' key={'1'}>
                             <Image

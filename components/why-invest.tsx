@@ -29,7 +29,7 @@ const WhyInvest = () => {
             className='h-full w-full'
           />
           <div className="absolute inset-0 flex flex-col gap-4 items-center justify-end p-6">
-            <div className='text-black text-3xl md:text-6xl font-light'>
+            <div className='text-black text-3xl md:text-6xl font-playfair'>
               <h1 >
                 WHY
               </h1>
@@ -64,31 +64,6 @@ const WhyInvest = () => {
 }
 
 export default WhyInvest
-
-
-function Icon2() {
-  return (
-    <div>
-      icon1
-    </div>
-  )
-}
-
-function Icon3() {
-  return (
-    <div>
-      icon1
-    </div>
-  )
-}
-
-function Icon4() {
-  return (
-    <div>
-      icon1
-    </div>
-  )
-}
 
 
 function InvestCards1() {

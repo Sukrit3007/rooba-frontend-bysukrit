@@ -6,7 +6,7 @@ import React from 'react'
 
 const Graph = () => {
     return (
-        <div className='grid md:grid-cols-2 gap-4 md:p-12'>
+        <div className='grid md:grid-cols-2 gap-4 md:p-12 mt-24'>
             <div>
                 <Image
                     src='/graph.svg'
@@ -19,14 +19,14 @@ const Graph = () => {
 
             <div>
                 <div className='flex flex-col gap-4 p-12'>
-                    <div className='flex flex-col gap-1 text-4xl md:text-6xl'>
-                        <h1>
+                    <div className='flex flex-col gap-1 text-4xl md:text-6xl font-playfair'>
+                        <h1 className=''>
                             Access
                         </h1>
-                        <h1>
+                        <h1 className='ml-8 italic '>
                             Alternative
                         </h1>
-                        <h1>
+                        <h1 className='ml-24'>
                             Investments
                         </h1>
                     </div>
