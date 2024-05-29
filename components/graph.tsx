@@ -10,24 +10,24 @@ const Graph = () => {
             <div>
                 <Image
                     src='/graph.svg'
-                    width={500}
-                    height={500}
+                    width={400}
+                    height={400}
                     alt='graph'
                     className='h-full w-full'
                 />
             </div>
 
             <div>
-                <div className='flex flex-col gap-4 p-12'>
-                    <div className='flex flex-col gap-1 text-4xl md:text-6xl font-playfair'>
+                <div className='flex flex-col gap-4 md:p-12'>
+                    <div className='flex flex-col gap-1 text-4xl md:text-5xl lg:text-6xl font-playfair'>
                         <h1 className=''>
                             Access
                         </h1>
-                        <h1 className='ml-8 italic '>
-                            Alternative
+                        <h1 className=' italic'>
+                        &nbsp;&nbsp;Alternative
                         </h1>
-                        <h1 className='ml-24'>
-                            Investments
+                        <h1 className=''>
+                        &nbsp;&nbsp;&nbsp;&nbsp;Investments
                         </h1>
                     </div>
 
